@@ -221,7 +221,9 @@ pnpm tauri build
 说明：
 
 - 桌面版使用根路径构建，不会带 GitHub Pages 的 `/EldenData` 前缀。
-- 安装包默认按当前用户安装，不需要管理员权限。
+- 安装包默认安装到 `D:\Program Files\EldenArchive`，按整机安装，需要管理员权限（UAC）。
+- 安装器目录页可以改安装位置；如果目标机器没有 D 盘，请在这里改成其他路径。
+- 开始菜单页可以取消“创建开始菜单快捷方式”；完成页可以勾选“创建桌面快捷方式”。
 - 未签名 exe 首次运行可能触发 Windows SmartScreen；公开分发建议配置代码签名。
 - `src-tauri/target/` 已在 `.gitignore` 中排除，不会提交构建产物。
 

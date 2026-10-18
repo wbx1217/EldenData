@@ -50,7 +50,8 @@
         "silent": true
       },
       "nsis": {
-        "installMode": "currentUser",
+        "installMode": "perMachine",
+        "template": "./windows/installer.nsi",
         "languages": ["SimpChinese", "English"],
         "displayLanguageSelector": false,
         "startMenuFolder": "交界地抗性档案"
