@@ -3383,10 +3383,20 @@ mark {
   .pagination .page-btn {
     min-width: 26px;
     height: 26px;
+    flex: 0 0 auto;
   }
 
-  .page-buttons > .page-btn:not(.is-on):not(:first-child):not(:last-child),
-  .page-buttons > .page-ellipsis {
+  .pagination .page-buttons {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pagination .page-buttons::-webkit-scrollbar {
     display: none;
   }
 
@@ -3423,10 +3433,6 @@ mark {
   .tool-btn,
   .select-wrap {
     padding: 0 7px;
-  }
-
-  .page-btn:nth-child(n + 6) {
-    display: none;
   }
 }
 
