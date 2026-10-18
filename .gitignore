@@ -10,5 +10,7 @@ out/
 /DLC敌人数据.json
 
 # Local preview screenshots and generated reports.
-/docs/
+/docs/*
+!/docs/preview-desktop.png
+!/docs/preview-mobile.png
 /reports/
