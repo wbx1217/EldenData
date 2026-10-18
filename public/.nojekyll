@@ -1,0 +1,2 @@
+# Keep GitHub Pages from running Jekyll over the exported Next.js output.
+# The _next/ directory must be served as-is.

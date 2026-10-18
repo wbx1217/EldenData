@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+*.log
+*.tsbuildinfo
+.DS_Store
+
+# Raw source workbooks/configs: deployment only needs src/data/enemies.json.
+/本体敌人数据.json
+/DLC敌人数据.json
+
+# Local preview screenshots and generated reports.
+/docs/
+/reports/
