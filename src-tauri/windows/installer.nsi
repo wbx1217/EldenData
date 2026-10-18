@@ -500,8 +500,6 @@ Function .onInit
   ${If} $INSTDIR == "${PLACEHOLDER_INSTALL_DIR}"
     ; Project-specific default install location.
     StrCpy $INSTDIR "D:\Program Files\EldenArchive"
-
-    Call RestorePreviousInstallLocation
   ${EndIf}
 
 

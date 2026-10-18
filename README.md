@@ -113,6 +113,7 @@ src-tauri/
   src/                  桌面入口与 Tauri Builder
   icons/                Windows 图标
   capabilities/         桌面权限
+  windows/installer.nsi 默认 D 盘路径 / 快捷方式选项
 ```
 
 ## 设计
