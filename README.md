@@ -208,6 +208,9 @@ src-tauri/target/release/bundle/nsis/*-setup.exe
 dist/EldenArchive_1.0.0_x64-setup.exe
 ```
 
+> NSIS 安装包请放在纯英文路径下运行（例如 `C:\Users\<用户名>\Downloads`）。  
+> 如果安装包所在的父目录包含中文，部分 NSIS 版本会报 `Error writing temporary file`；把安装包复制到 Downloads 或 `C:\Temp` 后运行即可。
+
 如果 NSIS 组件下载超时，可以设置 GitHub 镜像后重新构建：
 
 ```powershell
