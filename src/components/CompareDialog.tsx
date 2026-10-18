@@ -5,16 +5,14 @@ import type { Enemy, Group, Resistance } from "@/lib/types";
 import { COMPARE_COLORS as COLORS, DAMAGE, STATUS } from "@/lib/labels";
 import { formatDamageTaken, formatResistance } from "@/lib/derive";
 import RadarChart from "./RadarChart";
-import { CloseIcon, CopyIcon } from "./icons";
+import { CloseIcon } from "./icons";
 import { useDialog } from "@/lib/useDialog";
-import { shareBaseUrl } from "@/lib/share";
 
 interface CompareDialogProps {
   enemies: Enemy[];
   groups: Map<string, Group>;
   onClose: () => void;
   onRemove: (key: string) => void;
-  onCopy: (text: string, message: string) => void;
 }
 
 
@@ -45,7 +43,6 @@ export default function CompareDialog({
   groups,
   onClose,
   onRemove,
-  onCopy,
 }: CompareDialogProps) {
   const panelRef = useDialog(onClose);
 
@@ -56,14 +53,6 @@ export default function CompareDialog({
     color: COLORS[index],
     values: DAMAGE.map((item) => enemy.damage[item.key]),
   }));
-
-  const copyLink = () => {
-    const url = shareBaseUrl();
-    url.searchParams.set("compare", enemies.map((enemy) => enemy.key).join(","));
-    url.searchParams.set("cmp", "1");
-    url.searchParams.delete("id");
-    onCopy(url.toString(), "已复制对比链接");
-  };
 
   return createPortal(
     <div className="overlay compare-overlay" onMouseDown={onClose}>
@@ -83,10 +72,6 @@ export default function CompareDialog({
             <p className="compare-sub">最多同时对照 3 个敌人。数值为承受伤害倍率，越低越抗。</p>
           </div>
           <div className="compare-head-actions">
-            <button type="button" className="btn btn-ghost" onClick={copyLink}>
-              <CopyIcon />
-              复制对比链接
-            </button>
             <button type="button" className="icon-btn" onClick={onClose} aria-label="关闭对比">
               <CloseIcon />
             </button>

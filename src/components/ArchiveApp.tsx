@@ -591,23 +591,6 @@ export default function ArchiveApp({ data }: { data: ArchiveData }) {
     });
   };
 
-  const copyText = async (text: string, message: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setToast(message);
-    } catch {
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-      setToast(message);
-    }
-  };
-
   const pageKeys = pageItems.map((enemy) => enemy.key);
   const allOnPage = pageKeys.length > 0 && pageKeys.every((key) => compareKeys.includes(key));
   const someOnPage = pageKeys.some((key) => compareKeys.includes(key));
@@ -1719,7 +1702,6 @@ export default function ArchiveApp({ data }: { data: ArchiveData }) {
           onToggleCompare={toggleCompare}
           isCompared={compareKeys.includes(openEnemy.key)}
           compareCount={compareKeys.length}
-          onCopy={copyText}
         />
       ) : null}
 
@@ -1729,7 +1711,6 @@ export default function ArchiveApp({ data }: { data: ArchiveData }) {
           groups={groupMap}
           onClose={() => setCompareOpen(false)}
           onRemove={toggleCompare}
-          onCopy={copyText}
         />
       ) : null}
 

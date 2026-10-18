@@ -365,15 +365,6 @@ export function MinusIcon({ size = 12, ...rest }: GameIconProps) {
   );
 }
 
-export function CopyIcon({ size = 15, ...rest }: GameIconProps) {
-  return (
-    <Svg size={size} {...rest}>
-      <rect x="8" y="8" width="11" height="12" rx="1" />
-      <path d="M16 8 V5 A1 1 0 0 0 15 4 H6 A1 1 0 0 0 5 5 V15 A1 1 0 0 0 6 16 H8" />
-    </Svg>
-  );
-}
-
 export function CompareIcon({ size = 15, ...rest }: GameIconProps) {
   return (
     <Svg size={size} {...rest}>

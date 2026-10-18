@@ -30,13 +30,11 @@ import {
   ChevronIcon,
   CloseIcon,
   CompareIcon,
-  CopyIcon,
   DamageIcon,
   StatusIcon,
   TraitIcon,
 } from "./icons";
 import { useDialog } from "@/lib/useDialog";
-import { shareBaseUrl } from "@/lib/share";
 
 interface DetailDrawerProps {
   enemy: Enemy;
@@ -49,7 +47,6 @@ interface DetailDrawerProps {
   onToggleCompare: (key: string) => void;
   isCompared: boolean;
   compareCount: number;
-  onCopy: (text: string, message: string) => void;
 }
 
 function statusStrength(value: ReturnType<typeof statusLevel>): number {
@@ -78,7 +75,6 @@ export default function DetailDrawer({
   onToggleCompare,
   isCompared,
   compareCount,
-  onCopy,
 }: DetailDrawerProps) {
   const panelRef = useDialog(onClose);
 
@@ -92,12 +88,6 @@ export default function DetailDrawer({
   const radarValues = DAMAGE.map((item) => enemy.damage[item.key]);
   const hasRadar = radarValues.some((value) => typeof value === "number");
   const siblings = groupEnemies.filter((item) => item.key !== enemy.key).slice(0, 6);
-
-  const copyLink = () => {
-    const url = shareBaseUrl();
-    url.searchParams.set("id", enemy.key);
-    onCopy(url.toString(), "已复制详情链接");
-  };
 
   return createPortal(
     <div className="overlay drawer-overlay" onMouseDown={onClose}>
@@ -341,10 +331,6 @@ export default function DetailDrawer({
             <CompareIcon />
             {isCompared ? "移出对比" : "加入对比"}
             <span className="btn-count">{compareCount}/3</span>
-          </button>
-          <button type="button" className="btn btn-primary" onClick={copyLink}>
-            <CopyIcon />
-            复制链接
           </button>
         </footer>
       </aside>

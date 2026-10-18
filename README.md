@@ -218,7 +218,6 @@ pnpm tauri build
 说明：
 
 - 桌面版使用根路径构建，不会带 GitHub Pages 的 `/EldenData` 前缀。
-- 详情 / 对比的“复制链接”在桌面壳内会自动指向线上公开站点，避免复制出 `tauri://` 地址。
 - 安装包默认按当前用户安装，不需要管理员权限。
 - 未签名 exe 首次运行可能触发 Windows SmartScreen；公开分发建议配置代码签名。
 - `src-tauri/target/` 已在 `.gitignore` 中排除，不会提交构建产物。
