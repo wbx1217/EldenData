@@ -202,6 +202,19 @@ pnpm tauri build
 src-tauri/target/release/bundle/nsis/*-setup.exe
 ```
 
+构建完成后可以把安装包复制为 ASCII 文件名再分发，例如：
+
+```text
+dist/EldenArchive_1.0.0_x64-setup.exe
+```
+
+如果 NSIS 组件下载超时，可以设置 GitHub 镜像后重新构建：
+
+```powershell
+$env:TAURI_BUNDLER_TOOLS_GITHUB_MIRROR="https://gh-proxy.com/https://github.com"
+pnpm tauri build
+```
+
 说明：
 
 - 桌面版使用根路径构建，不会带 GitHub Pages 的 `/EldenData` 前缀。
