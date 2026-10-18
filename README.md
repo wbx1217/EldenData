@@ -4,6 +4,8 @@
 
 **在线站点：** [wbx1217.github.io/EldenData](https://wbx1217.github.io/EldenData/)
 
+**Windows 安装包：** [GitHub Releases](https://github.com/wbx1217/EldenData/releases/latest)
+
 - **785** 个敌人 · **78** 个分组 · **8** 个伤害维度 · **5** 个异常维度
 - 本体 483 条（28 个势力 / 类别分组）+ DLC 302 条（50 个区域分组）
 - 纯静态导出，无后端、无数据库、无登录
