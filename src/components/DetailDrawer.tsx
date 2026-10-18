@@ -36,6 +36,7 @@ import {
   TraitIcon,
 } from "./icons";
 import { useDialog } from "@/lib/useDialog";
+import { shareBaseUrl } from "@/lib/share";
 
 interface DetailDrawerProps {
   enemy: Enemy;
@@ -93,7 +94,7 @@ export default function DetailDrawer({
   const siblings = groupEnemies.filter((item) => item.key !== enemy.key).slice(0, 6);
 
   const copyLink = () => {
-    const url = new URL(window.location.href);
+    const url = shareBaseUrl();
     url.searchParams.set("id", enemy.key);
     onCopy(url.toString(), "已复制详情链接");
   };

@@ -14,3 +14,6 @@ out/
 !/docs/preview-desktop.png
 !/docs/preview-mobile.png
 /reports/
+
+# Local desktop installers.
+/dist/

@@ -7,6 +7,7 @@ import { formatDamageTaken, formatResistance } from "@/lib/derive";
 import RadarChart from "./RadarChart";
 import { CloseIcon, CopyIcon } from "./icons";
 import { useDialog } from "@/lib/useDialog";
+import { shareBaseUrl } from "@/lib/share";
 
 interface CompareDialogProps {
   enemies: Enemy[];
@@ -57,7 +58,7 @@ export default function CompareDialog({
   }));
 
   const copyLink = () => {
-    const url = new URL(window.location.href);
+    const url = shareBaseUrl();
     url.searchParams.set("compare", enemies.map((enemy) => enemy.key).join(","));
     url.searchParams.set("cmp", "1");
     url.searchParams.delete("id");

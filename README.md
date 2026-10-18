@@ -107,6 +107,12 @@ src/
     useDialog.ts        焦点陷阱、Esc、滚动锁
   data/enemies.json     785 条归一化数据
 scripts/normalize.mjs   数据清洗与校验
+src-tauri/
+  tauri.conf.json       Tauri 窗口 / 打包配置
+  Cargo.toml            Rust 依赖
+  src/                  桌面入口与 Tauri Builder
+  icons/                Windows 图标
+  capabilities/         桌面权限
 ```
 
 ## 设计
@@ -167,6 +173,42 @@ pnpm install
 pnpm build
 # out/ 即完整静态站点
 ```
+
+## Windows 桌面版（Tauri 2）
+
+项目包含 Tauri 2 桌面壳，直接加载 Next 静态导出的 `out/`，数据完全离线。
+
+前置环境：
+
+- Rust stable（MSVC toolchain）
+- Visual Studio C++ Build Tools
+- WebView2 Runtime（Windows 10/11 一般已自带）
+
+开发模式：
+
+```bash
+pnpm tauri dev
+```
+
+构建 NSIS 安装包：
+
+```bash
+pnpm tauri build
+```
+
+产物：
+
+```text
+src-tauri/target/release/bundle/nsis/*-setup.exe
+```
+
+说明：
+
+- 桌面版使用根路径构建，不会带 GitHub Pages 的 `/EldenData` 前缀。
+- 详情 / 对比的“复制链接”在桌面壳内会自动指向线上公开站点，避免复制出 `tauri://` 地址。
+- 安装包默认按当前用户安装，不需要管理员权限。
+- 未签名 exe 首次运行可能触发 Windows SmartScreen；公开分发建议配置代码签名。
+- `src-tauri/target/` 已在 `.gitignore` 中排除，不会提交构建产物。
 
 ## 声明
 

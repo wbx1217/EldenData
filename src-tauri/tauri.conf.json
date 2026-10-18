@@ -1,0 +1,60 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "交界地抗性档案",
+  "version": "1.0.0",
+  "identifier": "io.github.wbx1217.eldenarchive",
+  "build": {
+    "frontendDist": "../out",
+    "devUrl": "http://localhost:3000",
+    "beforeDevCommand": "pnpm dev",
+    "beforeBuildCommand": "pnpm build"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "交界地抗性档案",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 960,
+        "minHeight": 600,
+        "maximized": true,
+        "center": true,
+        "resizable": true,
+        "fullscreen": false,
+        "backgroundColor": "#0A0A0B",
+        "theme": "Dark"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "wbx1217",
+    "copyright": "Non-official fan project. Elden Ring is a trademark of FromSoftware / Bandai Namco.",
+    "shortDescription": "交界地抗性档案 · Elden Ring 敌人抗性资料库",
+    "longDescription": "785 个《艾尔登法环》敌人的伤害承受倍率、异常抵抗、韧性与特性，可离线筛选、排序与对比。",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["SimpChinese", "English"],
+        "displayLanguageSelector": false,
+        "startMenuFolder": "交界地抗性档案"
+      }
+    }
+  }
+}

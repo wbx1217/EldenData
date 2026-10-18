@@ -1,0 +1,17 @@
+[package]
+name = "elden-archive"
+version = "1.0.0"
+description = "The Lands Between Archive - Elden Ring enemy resistance data"
+authors = ["wbx1217"]
+edition = "2021"
+rust-version = "1.90"
+
+[lib]
+name = "elden_archive_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.7.3", features = [] }
+
+[dependencies]
+tauri = { version = "2.12.4", features = [] }
